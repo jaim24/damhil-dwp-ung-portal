@@ -84,7 +84,7 @@ const HeroSection = () => {
               <div className="text-sm text-muted-foreground mt-1">Alumni</div>
             </div>
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-accent-foreground font-heading">15+</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-foreground font-heading">17</div>
               <div className="text-sm text-muted-foreground mt-1">Tenaga Pendidik</div>
             </div>
           </div>

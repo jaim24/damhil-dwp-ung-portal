@@ -4,36 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const teachers = [
-  {
-    name: "Ibu Siti Nurhaliza, S.Pd",
-    position: "Kepala Sekolah",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face",
-  },
-  {
-    name: "Ibu Fatimah, S.Pd.AUD",
-    position: "Guru Kelas A",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face",
-  },
-  {
-    name: "Ibu Aisyah, S.Pd",
-    position: "Guru Kelas B",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-  },
-  {
-    name: "Ibu Khadijah, S.Pd.AUD",
-    position: "Guru Pendamping",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face",
-  },
-  {
-    name: "Ibu Maryam, A.Md",
-    position: "Guru Seni",
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&h=300&fit=crop&crop=face",
-  },
-  {
-    name: "Bapak Ahmad, S.Pd",
-    position: "Guru Olahraga",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-  },
+  { name: "Guru 1", position: "Guru Kelas A1", image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 2", position: "Guru Kelas A2", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 3", position: "Guru Kelas B1", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 4", position: "Guru Kelas B2", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 5", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 6", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 7", position: "Guru Seni", image: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 8", position: "Guru Olahraga", image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 9", position: "Guru Agama", image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 10", position: "Guru Kelas C1", image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 11", position: "Guru Kelas C2", image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 12", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 13", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 14", position: "Guru Kreativitas", image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 15", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 16", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face" },
+  { name: "Guru 17", position: "Guru Pendamping", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" },
 ];
 
 const TeachersSection = () => {
