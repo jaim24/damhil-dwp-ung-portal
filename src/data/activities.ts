@@ -4,10 +4,10 @@
 export const activities = [
   { title: "Kegiatan Belajar", image: "/images/aktivitas/belajar.jpg" },
   { title: "Bermain Bersama", image: "/images/aktivitas/bermain.jpg" },
-  { title: "Kreasi Seni", image: "/images/aktivitas/seni.jpg" },
-  { title: "Olahraga", image: "/images/aktivitas/olahraga.jpg" },
-  { title: "Kegiatan Agama", image: "/images/aktivitas/agama.jpg" },
-  { title: "Field Trip", image: "/images/aktivitas/fieldtrip.jpg" },
+  { title: "Upacara Bersama", image: "/images/aktivitas/kegiatan_upacara.jpeg" },
+  { title: "Market Day", image: "/images/aktivitas/kegiatan_market_day.jpeg" },
+  { title: "Kegiatan Agama", image: "/images/aktivitas/kegiatan_buka_puasa.jpeg" },
+  { title: "Field Trip", image: "/images/aktivitas/kegiatan_field_trip.jpeg" },
 ];
 
 export const activityDescription = {

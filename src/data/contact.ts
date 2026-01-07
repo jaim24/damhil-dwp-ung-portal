@@ -7,5 +7,5 @@ export const contact = {
   whatsappLink:
     "https://wa.me/628114295555?text=Halo,%20saya%20ingin%20bertanya%20tentang%20PAUD%20Damhil%20DWP%20UNG",
   email: "paud.damhil@ung.ac.id",
-  operationalHours: "Senin - Jumat: 07:30 - 12:00 WIT",
+  operationalHours: "Senin - Jumat: 07:30 - 16:00 WITA",
 };
