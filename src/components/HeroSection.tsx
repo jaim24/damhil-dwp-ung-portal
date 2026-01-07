@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Sparkles, Star } from "lucide-react";
+import { stats } from "@/data/stats";
 
 const HeroSection = () => {
   const handleScroll = (href: string) => {
@@ -76,16 +77,16 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-primary font-heading">10+</div>
-              <div className="text-sm text-muted-foreground mt-1">Tahun Pengalaman</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary font-heading">{stats.yearsOfExperience}</div>
+              <div className="text-sm text-muted-foreground mt-1">{stats.yearsLabel}</div>
             </div>
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-secondary-foreground font-heading">500+</div>
-              <div className="text-sm text-muted-foreground mt-1">Alumni</div>
+              <div className="text-3xl md:text-4xl font-bold text-secondary-foreground font-heading">{stats.alumni}</div>
+              <div className="text-sm text-muted-foreground mt-1">{stats.alumniLabel}</div>
             </div>
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-accent-foreground font-heading">17</div>
-              <div className="text-sm text-muted-foreground mt-1">Tenaga Pendidik</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-foreground font-heading">{stats.teachers}</div>
+              <div className="text-sm text-muted-foreground mt-1">{stats.teachersLabel}</div>
             </div>
           </div>
         </div>
