@@ -1,14 +1,6 @@
 import { BookOpen, Eye, Target, CheckCircle2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-
-const misiList = [
-  "Menyelenggarakan pendidikan yang mengembangkan potensi anak secara optimal",
-  "Membentuk karakter anak yang berakhlak mulia dan cinta tanah air",
-  "Menciptakan lingkungan belajar yang aman, nyaman, dan menyenangkan",
-  "Mengembangkan kreativitas dan kecerdasan majemuk anak",
-  "Menjalin kerjasama yang harmonis antara sekolah dan orang tua",
-  "Mempersiapkan anak untuk jenjang pendidikan selanjutnya",
-];
+import { profile } from "@/data/profile";
 
 const ProfileSection = () => {
   return (
@@ -33,13 +25,7 @@ const ProfileSection = () => {
           <Card className="bg-gradient-to-br from-pastel-blue/30 to-pastel-green/30 border-none shadow-lg">
             <CardContent className="p-8">
               <p className="text-lg text-foreground leading-relaxed text-center">
-                <span className="font-bold text-primary">PAUD Damhil DWP UNG</span> adalah lembaga pendidikan anak usia dini 
-                yang berada di bawah naungan Dharma Wanita Persatuan Universitas Negeri Gorontalo. 
-                Kami berkomitmen untuk memberikan pendidikan berkualitas yang mengedepankan 
-                perkembangan kognitif, sosial-emosional, dan karakter anak melalui pendekatan 
-                pembelajaran yang menyenangkan dan bermakna. Dengan lingkungan yang kondusif 
-                dan tenaga pendidik yang profesional, kami siap menjadi mitra terbaik orang tua 
-                dalam mendampingi tumbuh kembang putra-putri tercinta.
+                {profile.description}
               </p>
             </CardContent>
           </Card>
@@ -58,10 +44,7 @@ const ProfileSection = () => {
                 <h3 className="font-heading text-2xl font-bold text-foreground">Visi</h3>
               </div>
               <p className="text-foreground/80 leading-relaxed text-lg">
-                Menjadi lembaga Pendidikan Anak Usia Dini yang unggul dan terpercaya dalam 
-                membentuk generasi yang cerdas, kreatif, mandiri, dan berakhlak mulia, 
-                serta siap menghadapi tantangan pendidikan di masa depan dengan karakter 
-                yang kuat dan jiwa yang ceria.
+                {profile.vision}
               </p>
             </CardContent>
           </Card>
@@ -77,7 +60,7 @@ const ProfileSection = () => {
                 <h3 className="font-heading text-2xl font-bold text-foreground">Misi</h3>
               </div>
               <ul className="space-y-3">
-                {misiList.map((misi, index) => (
+                {profile.missions.map((misi, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-secondary-foreground mt-0.5 flex-shrink-0" />
                     <span className="text-foreground/80">{misi}</span>

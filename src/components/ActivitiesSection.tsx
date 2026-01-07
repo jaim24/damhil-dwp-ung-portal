@@ -1,31 +1,5 @@
 import { Camera, Play } from "lucide-react";
-
-const activities = [
-  {
-    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop",
-    title: "Kegiatan Bermain",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&h=300&fit=crop",
-    title: "Belajar Mewarnai",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=400&h=300&fit=crop",
-    title: "Aktivitas Outdoor",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400&h=300&fit=crop",
-    title: "Menyanyi Bersama",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop",
-    title: "Kegiatan Belajar",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1560785496-3c9d27877182?w=400&h=300&fit=crop",
-    title: "Bermain Bersama",
-  },
-];
+import { activities, activityDescription } from "@/data/activities";
 
 const ActivitiesSection = () => {
   return (
@@ -56,6 +30,9 @@ const ActivitiesSection = () => {
                 src={activity.image}
                 alt={activity.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  e.currentTarget.src = "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop";
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -76,14 +53,10 @@ const ActivitiesSection = () => {
         <div className="max-w-3xl mx-auto">
           <div className="bg-gradient-to-r from-pastel-blue/40 via-pastel-green/40 to-pastel-yellow/40 rounded-2xl p-8 text-center">
             <h3 className="font-heading text-xl font-bold text-foreground mb-4">
-              Kegiatan Harian & Kegiatan Khusus
+              {activityDescription.title}
             </h3>
             <p className="text-foreground/80 leading-relaxed">
-              Setiap hari, anak-anak kami mengikuti berbagai aktivitas yang menyenangkan dan edukatif. 
-              Mulai dari kegiatan motorik pagi, pembelajaran tematik, hingga waktu bermain bebas. 
-              Selain itu, kami juga menyelenggarakan kegiatan khusus seperti perayaan hari besar, 
-              field trip edukatif, dan pentas seni yang melibatkan orang tua untuk mempererat 
-              hubungan antara sekolah dan keluarga.
+              {activityDescription.description}
             </p>
           </div>
         </div>

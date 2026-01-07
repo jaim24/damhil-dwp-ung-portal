@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import { principal } from "@/data/principal";
 
 const PrincipalSection = () => {
   return (
@@ -23,21 +24,20 @@ const PrincipalSection = () => {
                 <div className="relative">
                   <Quote className="w-12 h-12 text-paud-yellow mb-4" />
                   <blockquote className="text-xl md:text-2xl text-foreground/80 leading-relaxed italic mb-6">
-                    "Pendidikan anak usia dini adalah pondasi terpenting dalam membentuk generasi yang cerdas, 
-                    berkarakter, dan berakhlak mulia. Bersama, kita wujudkan masa depan cerah untuk anak-anak kita."
+                    "{principal.quote}"
                   </blockquote>
                   <div className="w-16 h-1 bg-gradient-to-r from-paud-yellow to-paud-pink rounded-full mb-6"></div>
                 </div>
                 
                 <div className="mt-4">
                   <h3 className="text-2xl font-bold text-foreground font-heading">
-                    Nama Pengelola
+                    {principal.name}
                   </h3>
                   <p className="text-paud-purple font-semibold mt-1">
-                    Kepala Sekolah PAUD Damhil DWP UNG
+                    {principal.position}
                   </p>
                   <p className="text-muted-foreground mt-2 text-sm">
-                    S.Pd., M.Pd. | Pendidikan Anak Usia Dini
+                    {principal.credential}
                   </p>
                 </div>
               </div>
@@ -46,9 +46,12 @@ const PrincipalSection = () => {
               <div className="relative order-1 md:order-2 min-h-[300px] md:min-h-[450px]">
                 <div className="absolute inset-0 bg-gradient-to-br from-paud-blue via-paud-purple to-paud-pink opacity-20"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=face"
-                  alt="Pengelola PAUD Damhil DWP UNG"
+                  src={principal.image}
+                  alt={principal.name}
                   className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=face";
+                  }}
                 />
                 {/* Decorative Elements */}
                 <div className="absolute top-4 right-4 w-20 h-20 bg-paud-yellow/30 rounded-full blur-xl"></div>

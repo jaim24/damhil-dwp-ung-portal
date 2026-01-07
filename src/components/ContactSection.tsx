@@ -1,33 +1,34 @@
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { contact } from "@/data/contact";
 
 const contactInfo = [
   {
     icon: MapPin,
     title: "Alamat",
-    content: "Jl. Jenderal Sudirman No. 6, Kota Gorontalo, Gorontalo 96128",
+    content: contact.address,
     color: "pastel-blue",
     iconColor: "text-primary",
   },
   {
     icon: Phone,
     title: "WhatsApp",
-    content: "+62 812-3456-7890",
+    content: contact.whatsapp,
     color: "pastel-green",
     iconColor: "text-emerald-500",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "paud.damhil@ung.ac.id",
+    content: contact.email,
     color: "pastel-yellow",
     iconColor: "text-amber-500",
   },
   {
     icon: Clock,
     title: "Jam Operasional",
-    content: "Senin - Jumat: 07:30 - 12:00 WIT",
+    content: contact.operationalHours,
     color: "pastel-pink",
     iconColor: "text-pink-500",
   },
@@ -35,10 +36,7 @@ const contactInfo = [
 
 const ContactSection = () => {
   const handleWhatsApp = () => {
-    window.open(
-      "https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20bertanya%20tentang%20PAUD%20Damhil%20DWP%20UNG",
-      "_blank"
-    );
+    window.open(contact.whatsappLink, "_blank");
   };
 
   return (
