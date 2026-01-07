@@ -45,7 +45,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-background/70 text-sm leading-relaxed">
-              Membentuk generasi cerdas, ceria, dan berakhlak mulia melalui 
+              Membentuk generasi cerdas, ceria, dan berakhlak mulia melalui
               pendidikan anak usia dini yang berkualitas dan menyenangkan.
             </p>
           </div>
@@ -96,7 +96,8 @@ const Footer = () => {
               © {currentYear} PAUD Damhil DWP UNG. Hak Cipta Dilindungi.
             </p>
             <p className="text-background/70 text-sm flex items-center gap-1">
-              Dibuat dengan <Heart className="w-4 h-4 text-destructive inline" /> di Gorontalo
+              Dibuat dengan{" "}
+              <Heart className="w-4 h-4 text-destructive inline" /> di Gorontalo
             </p>
           </div>
         </div>

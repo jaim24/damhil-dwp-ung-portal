@@ -3,11 +3,11 @@
 
 export const stats = {
   yearsOfExperience: "10+",
-  yearsLabel: "Tahun Pengalaman",
-  
+  yearsLabel: "Tahun Pengalaman Guru",
+
   alumni: "500+",
   alumniLabel: "Alumni",
-  
+
   teachers: "17",
-  teachersLabel: "Tenaga Pendidik",
+  teachersLabel: "Tenaga Pendidik dan Tenaga Kependidikan",
 };
