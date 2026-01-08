@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/data/siteConfig";
 
 const navLinks = [
   { href: "#beranda", label: "Beranda" },
@@ -51,16 +52,31 @@ const Navbar = () => {
             }}
             className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center">
+            {siteConfig.logo ? (
+              <img 
+                src={siteConfig.logo} 
+                alt={siteConfig.schoolName}
+                className="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full"
+                onError={(e) => {
+                  // Fallback to text logo if image fails
+                  e.currentTarget.style.display = 'none';
+                  const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (fallback) fallback.style.display = 'flex';
+                }}
+              />
+            ) : null}
+            <div 
+              className={`w-10 h-10 md:w-12 md:h-12 bg-primary rounded-full items-center justify-center ${siteConfig.logo ? 'hidden' : 'flex'}`}
+            >
               <span className="text-primary-foreground font-heading font-bold text-lg md:text-xl">
-                PD
+                {siteConfig.logoInitials}
               </span>
             </div>
             <div className="hidden sm:block">
               <h1 className="font-heading font-bold text-sm md:text-base text-foreground leading-tight">
-                PAUD Damhil
+                {siteConfig.schoolName}
               </h1>
-              <p className="text-xs text-muted-foreground">DWP UNG</p>
+              <p className="text-xs text-muted-foreground">{siteConfig.schoolSubtitle}</p>
             </div>
           </a>
 

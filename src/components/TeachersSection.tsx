@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,7 +6,20 @@ import { teachers } from "@/data/teachers";
 
 const TeachersSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerView = 3;
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const itemsPerView = isMobile ? 1 : 3;
   const maxIndex = Math.max(0, teachers.length - itemsPerView);
 
   const handlePrev = () => {
@@ -15,6 +28,32 @@ const TeachersSection = () => {
 
   const handleNext = () => {
     setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  };
+
+  // Touch handlers for swipe
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe && currentIndex < maxIndex) {
+      handleNext();
+    }
+    if (isRightSwipe && currentIndex > 0) {
+      handlePrev();
+    }
   };
 
   return (
@@ -40,7 +79,7 @@ const TeachersSection = () => {
 
         {/* Teachers Carousel */}
         <div className="relative max-w-5xl mx-auto">
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Desktop */}
           <Button
             variant="outline"
             size="icon"
@@ -60,8 +99,14 @@ const TeachersSection = () => {
             <ChevronRight className="w-6 h-6" />
           </Button>
 
-          {/* Carousel Container */}
-          <div className="overflow-hidden px-4">
+          {/* Carousel Container with Touch Support */}
+          <div 
+            className="overflow-hidden px-4"
+            ref={carouselRef}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{
@@ -75,7 +120,8 @@ const TeachersSection = () => {
                 >
                   <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
                     <CardContent className="p-6 text-center">
-                      <div className="relative w-32 h-32 mx-auto mb-5">
+                      {/* Larger image container */}
+                      <div className="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-5">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse opacity-30" />
                         <img
                           src={teacher.image}
@@ -99,17 +145,20 @@ const TeachersSection = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation Dots */}
-          <div className="flex justify-center gap-2 mt-6 md:hidden">
-            {teachers.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
-                }`}
-                onClick={() => setCurrentIndex(index)}
-              />
-            ))}
+          {/* Mobile Navigation - Swipe indicator + dots */}
+          <div className="flex flex-col items-center gap-3 mt-6 md:hidden">
+            <p className="text-xs text-muted-foreground">← Geser untuk melihat guru lainnya →</p>
+            <div className="flex justify-center gap-2">
+              {teachers.map((_, index) => (
+                <button
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                  }`}
+                  onClick={() => setCurrentIndex(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
