@@ -1,10 +1,35 @@
-import { Camera } from "lucide-react";
+import { Camera, Star, Heart } from "lucide-react";
 import { activities, activityDescription } from "@/data/activities";
+
+// Dekorasi untuk setiap foto
+const PhotoDecoration = ({ index }: { index: number }) => {
+  const decorations = [
+    // Bintang kuning
+    <Star key="star" className="absolute -top-2 -right-2 w-6 h-6 text-yellow-400 animate-bounce-gentle z-10" style={{ animationDelay: '0.3s' }} fill="currentColor" />,
+    // Hati pink
+    <Heart key="heart" className="absolute -top-2 -left-2 w-5 h-5 text-pink-400 animate-float z-10" style={{ animationDelay: '0.5s' }} fill="currentColor" />,
+    // Lingkaran
+    <div key="circle" className="absolute -bottom-2 -right-2 w-5 h-5 rounded-full bg-blue-300/60 animate-bounce-gentle z-10" style={{ animationDelay: '0.7s' }} />,
+    // Segitiga
+    <div key="triangle" className="absolute -top-2 -left-2 w-0 h-0 border-l-[8px] border-r-[8px] border-b-[14px] border-l-transparent border-r-transparent border-b-green-400/70 animate-float z-10" style={{ animationDelay: '0.4s' }} />,
+    // Balok
+    <div key="block" className="absolute -bottom-2 -left-2 w-5 h-5 rounded-md bg-orange-300/60 rotate-12 animate-float z-10" style={{ animationDelay: '0.6s' }} />,
+    // Bintang ungu
+    <Star key="star2" className="absolute -bottom-2 -right-2 w-5 h-5 text-purple-400 animate-bounce-gentle z-10" style={{ animationDelay: '0.8s' }} fill="currentColor" />,
+  ];
+  
+  return decorations[index % decorations.length];
+};
 
 const ActivitiesSection = () => {
   return (
-    <section id="aktivitas" className="py-20 bg-card">
-      <div className="container mx-auto px-4">
+    <section id="aktivitas" className="py-20 bg-card relative overflow-hidden">
+      {/* Section decorations */}
+      <div className="absolute top-10 left-10 w-16 h-16 rounded-full bg-yellow-200/30 animate-float" />
+      <div className="absolute bottom-20 right-10 w-12 h-12 rounded-full bg-pink-200/30 animate-bounce-gentle" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-1/2 left-5 w-8 h-8 rounded-lg bg-blue-200/30 rotate-45 animate-float" style={{ animationDelay: '0.5s' }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 bg-accent/30 px-4 py-2 rounded-full mb-4">
@@ -24,21 +49,26 @@ const ActivitiesSection = () => {
           {activities.map((activity, index) => (
             <div
               key={index}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+              className="group relative aspect-[4/3] rounded-2xl overflow-visible"
             >
-              <img
-                src={activity.image}
-                alt={activity.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop";
-                }}
-              />
-              {/* Title overlay - always visible at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/80 to-transparent p-4">
-                <p className="text-primary-foreground font-heading font-semibold text-sm md:text-base">
-                  {activity.title}
-                </p>
+              {/* Photo decoration */}
+              <PhotoDecoration index={index} />
+              
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <img
+                  src={activity.image}
+                  alt={activity.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=300&fit=crop";
+                  }}
+                />
+                {/* Title overlay - always visible at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-foreground/80 to-transparent p-4">
+                  <p className="text-primary-foreground font-heading font-semibold text-sm md:text-base">
+                    {activity.title}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -46,7 +76,11 @@ const ActivitiesSection = () => {
 
         {/* Description */}
         <div className="max-w-3xl mx-auto">
-          <div className="bg-gradient-to-r from-pastel-blue/40 via-pastel-green/40 to-pastel-yellow/40 rounded-2xl p-8 text-center">
+          <div className="bg-gradient-to-r from-pastel-blue/40 via-pastel-green/40 to-pastel-yellow/40 rounded-2xl p-8 text-center relative overflow-hidden">
+            {/* Description decorations */}
+            <Star className="absolute top-4 left-4 w-5 h-5 text-yellow-400/50 animate-bounce-gentle" fill="currentColor" />
+            <Heart className="absolute bottom-4 right-4 w-5 h-5 text-pink-400/50 animate-float" fill="currentColor" />
+            
             <h3 className="font-heading text-xl font-bold text-foreground mb-4">
               {activityDescription.title}
             </h3>

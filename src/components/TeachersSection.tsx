@@ -1,8 +1,32 @@
 import { useState, useRef, useEffect } from "react";
-import { ChevronLeft, ChevronRight, GraduationCap } from "lucide-react";
+import { ChevronLeft, ChevronRight, GraduationCap, Star, Heart, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { teachers } from "@/data/teachers";
+
+// Dekorasi untuk setiap kartu guru
+const TeacherCardDecoration = ({ index }: { index: number }) => {
+  const decorations = [
+    <>
+      <Star className="absolute -top-2 -right-2 w-5 h-5 text-yellow-400 animate-bounce-gentle z-20" fill="currentColor" style={{ animationDelay: '0.2s' }} />
+      <Heart className="absolute -bottom-2 -left-2 w-4 h-4 text-pink-400 animate-float z-20" fill="currentColor" style={{ animationDelay: '0.4s' }} />
+    </>,
+    <>
+      <Sparkles className="absolute -top-2 -left-2 w-5 h-5 text-purple-400 animate-float z-20" style={{ animationDelay: '0.3s' }} />
+      <div className="absolute -bottom-2 -right-2 w-4 h-4 rounded-full bg-blue-300 animate-bounce-gentle z-20" style={{ animationDelay: '0.5s' }} />
+    </>,
+    <>
+      <Heart className="absolute -top-2 -right-2 w-5 h-5 text-red-400 animate-float z-20" fill="currentColor" style={{ animationDelay: '0.1s' }} />
+      <Star className="absolute -bottom-2 -left-2 w-4 h-4 text-yellow-400 animate-bounce-gentle z-20" fill="currentColor" style={{ animationDelay: '0.6s' }} />
+    </>,
+    <>
+      <div className="absolute -top-2 -left-2 w-5 h-5 rounded-md bg-orange-300 rotate-12 animate-bounce-gentle z-20" style={{ animationDelay: '0.4s' }} />
+      <Sparkles className="absolute -bottom-2 -right-2 w-4 h-4 text-green-400 animate-float z-20" style={{ animationDelay: '0.2s' }} />
+    </>,
+  ];
+  
+  return decorations[index % decorations.length];
+};
 
 const TeachersSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,6 +85,12 @@ const TeachersSection = () => {
       {/* Background decorations */}
       <div className="absolute top-20 left-0 w-64 h-64 bg-pastel-pink rounded-full opacity-20 blur-3xl" />
       <div className="absolute bottom-20 right-0 w-64 h-64 bg-pastel-purple rounded-full opacity-20 blur-3xl" />
+      
+      {/* Additional child-themed decorations */}
+      <div className="absolute top-10 right-20 w-8 h-8 rounded-full bg-yellow-200/40 animate-float" style={{ animationDelay: '0.5s' }} />
+      <div className="absolute bottom-32 left-16 w-6 h-6 rounded-lg bg-blue-200/40 rotate-45 animate-bounce-gentle" style={{ animationDelay: '1s' }} />
+      <Star className="absolute top-32 left-10 w-6 h-6 text-yellow-300/50 animate-bounce-gentle" fill="currentColor" style={{ animationDelay: '0.3s' }} />
+      <Heart className="absolute bottom-16 right-20 w-5 h-5 text-pink-300/50 animate-float" fill="currentColor" style={{ animationDelay: '0.8s' }} />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
@@ -118,7 +148,10 @@ const TeachersSection = () => {
                   key={index}
                   className="w-full md:w-1/3 flex-shrink-0 px-3"
                 >
-                  <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                  <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-visible relative">
+                    {/* Card decorations */}
+                    <TeacherCardDecoration index={index} />
+                    
                     <CardContent className="p-6 text-center">
                       {/* Larger image container */}
                       <div className="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-5">
