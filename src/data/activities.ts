@@ -2,8 +2,8 @@
 // Edit judul dan gambar di sini
 
 export const activities = [
-  { title: "Kegiatan Belajar", image: "/images/aktivitas/belajar.jpg" },
-  { title: "Bermain Bersama", image: "/images/aktivitas/bermain.jpg" },
+  { title: "Kegiatan Belajar", image: "/images/aktivitas/belajar_bersama.jpeg" },
+  { title: "Bermain Bersama", image: "/images/aktivitas/bermain_bersama.jpeg" },
   { title: "Upacara Bersama", image: "/images/aktivitas/kegiatan_upacara.jpeg" },
   { title: "Market Day", image: "/images/aktivitas/kegiatan_market_day.jpeg" },
   { title: "Kegiatan Agama", image: "/images/aktivitas/kegiatan_buka_puasa.jpeg" },

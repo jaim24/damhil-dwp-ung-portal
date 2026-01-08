@@ -4,7 +4,7 @@
 export const siteConfig = {
   // Logo - bisa menggunakan path gambar atau URL
   // Contoh: "/images/logo.png" atau "https://example.com/logo.png"
-  logo: "", // Kosongkan jika ingin menggunakan teks "PD"
+  logo: "/images/logo_paud_ung.png", // Kosongkan jika ingin menggunakan teks "PD"
   
   // Nama sekolah yang ditampilkan di navbar
   schoolName: "PAUD Damhil",
