@@ -8,12 +8,14 @@ import TeachersSection from "@/components/TeachersSection";
 import NewsSection from "@/components/NewsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import BackgroundDecorations from "@/components/BackgroundDecorations";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <BackgroundDecorations />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <ProfileSection />
         <ProgramsSection />
