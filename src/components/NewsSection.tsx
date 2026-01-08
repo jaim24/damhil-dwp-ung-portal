@@ -4,10 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { news } from "@/data/news";
+import ImageLightbox from "./ImageLightbox";
 
 const NewsSection = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [imageIndices, setImageIndices] = useState<Record<number, number>>({});
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImages, setLightboxImages] = useState<string[]>([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxTitle, setLightboxTitle] = useState("");
 
   const toggleExpand = (index: number) => {
     setExpandedIndex(expandedIndex === index ? null : index);
@@ -26,6 +31,24 @@ const NewsSection = () => {
       [newsIndex]: ((prev[newsIndex] || 0) - 1 + totalImages) % totalImages
     }));
   };
+
+  const openLightbox = (images: string[], index: number, title: string) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
+    setLightboxTitle(title);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => setLightboxOpen(false);
+
+  const nextLightboxImage = () => {
+    setLightboxIndex((prev) => (prev + 1) % lightboxImages.length);
+  };
+
+  const prevLightboxImage = () => {
+    setLightboxIndex((prev) => (prev - 1 + lightboxImages.length) % lightboxImages.length);
+  };
+
 
   return (
     <section id="berita" className="py-20 bg-card">
@@ -56,7 +79,10 @@ const NewsSection = () => {
                 key={index}
                 className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div 
+                  className="relative h-48 overflow-hidden cursor-pointer"
+                  onClick={() => openLightbox(images.length > 0 ? images : ["https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop"], currentImageIndex, item.title)}
+                >
                   <img
                     src={images[currentImageIndex] || "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=250&fit=crop"}
                     alt={item.title}
@@ -142,6 +168,17 @@ const NewsSection = () => {
           })}
         </div>
       </div>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={lightboxImages}
+        currentIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        onNext={nextLightboxImage}
+        onPrev={prevLightboxImage}
+        title={lightboxTitle}
+      />
     </section>
   );
 };

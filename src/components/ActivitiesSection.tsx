@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Camera, Star, Heart } from "lucide-react";
 import { activities, activityDescription } from "@/data/activities";
+import ImageLightbox from "./ImageLightbox";
 
 // Dekorasi untuk setiap foto
 const PhotoDecoration = ({ index }: { index: number }) => {
@@ -22,6 +24,26 @@ const PhotoDecoration = ({ index }: { index: number }) => {
 };
 
 const ActivitiesSection = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setSelectedImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => setLightboxOpen(false);
+
+  const nextImage = () => {
+    setSelectedImageIndex((prev) => (prev + 1) % activities.length);
+  };
+
+  const prevImage = () => {
+    setSelectedImageIndex((prev) => (prev - 1 + activities.length) % activities.length);
+  };
+
+  const allImages = activities.map((a) => a.image);
+
   return (
     <section id="aktivitas" className="py-20 bg-card relative overflow-hidden">
       {/* Section decorations */}
@@ -49,7 +71,8 @@ const ActivitiesSection = () => {
           {activities.map((activity, index) => (
             <div
               key={index}
-              className="group relative aspect-[4/3] rounded-2xl overflow-visible"
+              className="group relative aspect-[4/3] rounded-2xl overflow-visible cursor-pointer"
+              onClick={() => openLightbox(index)}
             >
               {/* Photo decoration */}
               <PhotoDecoration index={index} />
@@ -90,6 +113,17 @@ const ActivitiesSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={allImages}
+        currentIndex={selectedImageIndex}
+        isOpen={lightboxOpen}
+        onClose={closeLightbox}
+        onNext={nextImage}
+        onPrev={prevImage}
+        title={activities[selectedImageIndex]?.title}
+      />
     </section>
   );
 };
