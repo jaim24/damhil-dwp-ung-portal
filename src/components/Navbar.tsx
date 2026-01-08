@@ -72,11 +72,11 @@ const Navbar = () => {
                 {siteConfig.logoInitials}
               </span>
             </div>
-            <div className="hidden sm:block">
-              <h1 className="font-heading font-bold text-sm md:text-base text-foreground leading-tight">
+            <div className="block">
+              <h1 className="font-heading font-bold text-xs sm:text-sm md:text-base text-foreground leading-tight line-clamp-1">
                 {siteConfig.schoolName}
               </h1>
-              <p className="text-xs text-muted-foreground">{siteConfig.schoolSubtitle}</p>
+              <p className="text-[10px] sm:text-xs text-muted-foreground hidden sm:block">{siteConfig.schoolSubtitle}</p>
             </div>
           </a>
 
