@@ -70,7 +70,7 @@ export const teachers = [
   {
     name: "Ibu Sittiara Dewi Cahyana Puluhulawa, M.Pd",
     position: "Guru Kelompok Bermain",
-    image: "/images/guru/guru-13.jpg",
+    image: "/images/guru/Foto_ibu_lala.png",
   },
   {
     name: "Ibu Ninton Katili, S.Pd",
@@ -80,6 +80,6 @@ export const teachers = [
   {
     name: "Pak Moh. Renaldi Agung Hamzah, S.Pd",
     position: "Tenaga Administrasi",
-    image: "/images/guru/guru-15.png",
-  }
+    image: "/images/guru/Foto_pak_agung.png",
+  },
 ];
