@@ -16,12 +16,13 @@ const HeroSection = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
       {/* Background image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/images/hero/foto_tk_damhil.jpg')",
-        }}
-      />
+      <div className="absolute inset-0">
+        <img 
+          src="/images/hero/foto_tk_damhil.jpg"
+          alt="TK Damhil"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
       {/* Overlay gradient for readability */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-background/80 to-white/85" />
       {/* Color accent overlay */}
