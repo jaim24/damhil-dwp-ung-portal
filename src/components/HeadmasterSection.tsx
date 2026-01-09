@@ -3,7 +3,10 @@ import { headmaster } from "@/data/headmaster";
 
 const HeadmasterSection = () => {
   return (
-    <section id="kepala-sekolah" className="py-20 bg-gradient-to-br from-paud-yellow/20 via-white to-paud-green/20 relative overflow-hidden">
+    <section
+      id="kepala-sekolah"
+      className="py-20 bg-gradient-to-br from-paud-yellow/20 via-white to-paud-green/20 relative overflow-hidden"
+    >
       {/* Decorations */}
       <div className="absolute top-10 left-10 opacity-30">
         <Star className="w-8 h-8 text-paud-yellow animate-bounce-gentle" />
@@ -12,10 +15,16 @@ const HeadmasterSection = () => {
         <Heart className="w-6 h-6 text-paud-pink animate-float" />
       </div>
       <div className="absolute bottom-20 left-16 opacity-30">
-        <Sparkles className="w-7 h-7 text-paud-purple animate-bounce-gentle" style={{ animationDelay: "0.5s" }} />
+        <Sparkles
+          className="w-7 h-7 text-paud-purple animate-bounce-gentle"
+          style={{ animationDelay: "0.5s" }}
+        />
       </div>
       <div className="absolute bottom-10 right-10 opacity-30">
-        <Star className="w-6 h-6 text-paud-green animate-float" style={{ animationDelay: "0.3s" }} />
+        <Star
+          className="w-6 h-6 text-paud-green animate-float"
+          style={{ animationDelay: "0.3s" }}
+        />
       </div>
 
       <div className="container mx-auto px-4">
@@ -25,7 +34,7 @@ const HeadmasterSection = () => {
             Kepala Sekolah Kami
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heading">
-            Kepala Sekolah PAUD Damhil DWP UNG
+            Kepala Sekolah TK Damhil DWP UNG
           </h2>
         </div>
 
@@ -35,7 +44,7 @@ const HeadmasterSection = () => {
             {/* Card decorations */}
             <div className="absolute top-4 left-4 w-12 h-12 bg-paud-yellow/20 rounded-full blur-lg" />
             <div className="absolute bottom-4 right-4 w-16 h-16 bg-paud-green/20 rounded-full blur-lg" />
-            
+
             <div className="grid md:grid-cols-2 gap-0">
               {/* Left - Photo */}
               <div className="relative order-1 min-h-[300px] md:min-h-[450px]">
@@ -45,13 +54,14 @@ const HeadmasterSection = () => {
                   alt={headmaster.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=face";
+                    e.currentTarget.src =
+                      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=face";
                   }}
                 />
                 {/* Decorative Elements */}
                 <div className="absolute top-4 left-4 w-20 h-20 bg-paud-yellow/30 rounded-full blur-xl"></div>
                 <div className="absolute bottom-4 right-4 w-16 h-16 bg-paud-green/30 rounded-full blur-xl"></div>
-                
+
                 {/* Corner decorations */}
                 <div className="absolute top-6 right-6">
                   <Star className="w-6 h-6 text-white/60 animate-bounce-gentle" />
@@ -70,7 +80,7 @@ const HeadmasterSection = () => {
                   </blockquote>
                   <div className="w-16 h-1 bg-gradient-to-r from-paud-orange to-paud-yellow rounded-full mb-6"></div>
                 </div>
-                
+
                 <div className="mt-4">
                   <h3 className="text-2xl font-bold text-foreground font-heading">
                     {headmaster.name}
