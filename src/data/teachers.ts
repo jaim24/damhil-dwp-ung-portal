@@ -68,7 +68,7 @@ export const teachers = [
     image: "/images/guru/Foto_ibu_ningsi.png",
   },
   {
-    name: "Ibu Sittiara Dewi Cahyani Puluhulawa, M.Pd",
+    name: "Ibu Sittiara Dewi Cahyana Puluhulawa, M.Pd",
     position: "Guru Kelompok Bermain",
     image: "/images/guru/Foto_ibu_lala.png",
   },
