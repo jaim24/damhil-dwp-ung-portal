@@ -22,8 +22,8 @@ const Index = () => {
         <ProfileSection />
         <ProgramsSection />
         <ActivitiesSection />
-        <HeadmasterSection />
         <PrincipalSection />
+        <HeadmasterSection />
         <TeachersSection />
         <NewsSection />
         <ContactSection />
