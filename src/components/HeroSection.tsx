@@ -15,8 +15,17 @@ const HeroSection = () => {
       id="beranda"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
     >
-      {/* Background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pastel-blue via-background to-pastel-green opacity-50" />
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/hero/foto_tk_damhil.jpg')",
+        }}
+      />
+      {/* Overlay gradient for readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-background/80 to-white/85" />
+      {/* Color accent overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pastel-blue/30 via-transparent to-pastel-green/30" />
       
       {/* Floating decorations */}
       <div className="absolute top-20 left-10 w-16 h-16 bg-pastel-yellow rounded-full animate-float opacity-60" />
