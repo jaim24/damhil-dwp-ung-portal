@@ -17,7 +17,7 @@ const HeroSection = () => {
     >
       {/* Background image */}
       <div className="absolute inset-0">
-        <img 
+        <img
           src="/images/hero/foto_tk_damhil.jpg"
           alt="TK Damhil"
           className="w-full h-full object-cover object-center"
@@ -27,17 +27,32 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-background/80 to-white/85" />
       {/* Color accent overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-pastel-blue/30 via-transparent to-pastel-green/30" />
-      
+
       {/* Floating decorations */}
       <div className="absolute top-20 left-10 w-16 h-16 bg-pastel-yellow rounded-full animate-float opacity-60" />
       <div className="absolute top-40 right-20 w-12 h-12 bg-pastel-pink rounded-full animate-bounce-gentle opacity-60" />
-      <div className="absolute bottom-40 left-20 w-20 h-20 bg-pastel-purple rounded-full animate-float opacity-40" style={{ animationDelay: "1s" }} />
-      <div className="absolute bottom-20 right-10 w-14 h-14 bg-pastel-orange rounded-full animate-bounce-gentle opacity-50" style={{ animationDelay: "0.5s" }} />
-      
+      <div
+        className="absolute bottom-40 left-20 w-20 h-20 bg-pastel-purple rounded-full animate-float opacity-40"
+        style={{ animationDelay: "1s" }}
+      />
+      <div
+        className="absolute bottom-20 right-10 w-14 h-14 bg-pastel-orange rounded-full animate-bounce-gentle opacity-50"
+        style={{ animationDelay: "0.5s" }}
+      />
+
       {/* Stars decoration */}
-      <Star className="absolute top-32 right-1/4 w-8 h-8 text-accent animate-bounce-gentle" style={{ animationDelay: "0.3s" }} />
-      <Sparkles className="absolute bottom-32 left-1/4 w-10 h-10 text-primary/40 animate-float" style={{ animationDelay: "0.7s" }} />
-      <Heart className="absolute top-1/3 left-10 w-6 h-6 text-pastel-pink animate-bounce-gentle" style={{ animationDelay: "1.2s" }} />
+      <Star
+        className="absolute top-32 right-1/4 w-8 h-8 text-accent animate-bounce-gentle"
+        style={{ animationDelay: "0.3s" }}
+      />
+      <Sparkles
+        className="absolute bottom-32 left-1/4 w-10 h-10 text-primary/40 animate-float"
+        style={{ animationDelay: "0.7s" }}
+      />
+      <Heart
+        className="absolute top-1/3 left-10 w-6 h-6 text-pastel-pink animate-bounce-gentle"
+        style={{ animationDelay: "1.2s" }}
+      />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -50,21 +65,35 @@ const HeroSection = () => {
           </div>
 
           {/* Main heading */}
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            Selamat Datang di{" "}
-            <span className="text-primary">PAUD Damhil</span>{" "}
+          <h1
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 animate-fade-in-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            Selamat Datang di <span className="text-primary">PAUD Damhil</span>{" "}
             <span className="text-secondary-foreground">DWP UNG</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            Membentuk Generasi <span className="text-primary font-semibold">Cerdas</span>,{" "}
-            <span className="text-secondary-foreground font-semibold">Ceria</span>, dan{" "}
-            <span className="text-accent-foreground font-semibold">Berakhlak Mulia</span>
+          <p
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            Membentuk Generasi{" "}
+            <span className="text-primary font-semibold">Cerdas</span>,{" "}
+            <span className="text-secondary-foreground font-semibold">
+              Ceria
+            </span>
+            , dan{" "}
+            <span className="text-accent-foreground font-semibold">
+              Berakhlak Mulia
+            </span>
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
+            style={{ animationDelay: "0.3s" }}
+          >
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
@@ -85,18 +114,33 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mt-16 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <div
+            className="grid grid-cols-3 gap-4 md:gap-8 mt-16 animate-fade-in-up"
+            style={{ animationDelay: "0.4s" }}
+          >
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-primary font-heading">{stats.yearsOfExperience}</div>
-              <div className="text-sm text-muted-foreground mt-1">{stats.yearsLabel}</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary font-heading">
+                {stats.yearsOfExperience}
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                {stats.yearsLabel}
+              </div>
             </div>
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-secondary-foreground font-heading">{stats.alumni}</div>
-              <div className="text-sm text-muted-foreground mt-1">{stats.alumniLabel}</div>
+              <div className="text-3xl md:text-4xl font-bold text-secondary-foreground font-heading">
+                {stats.alumni}
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                {stats.alumniLabel}
+              </div>
             </div>
             <div className="text-center p-4 bg-card/50 backdrop-blur-sm rounded-2xl">
-              <div className="text-3xl md:text-4xl font-bold text-accent-foreground font-heading">{stats.teachers}</div>
-              <div className="text-sm text-muted-foreground mt-1">{stats.teachersLabel}</div>
+              <div className="text-3xl md:text-4xl font-bold text-accent-foreground font-heading">
+                {stats.teachers}
+              </div>
+              <div className="text-sm text-muted-foreground mt-1">
+                {stats.teachersLabel}
+              </div>
             </div>
           </div>
         </div>
